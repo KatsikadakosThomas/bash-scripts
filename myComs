@@ -1,0 +1,21 @@
+#! /bin/bash
+
+cd ~
+read -p "enter file name without spaces: " filename
+touch .$filename
+echo "#! /bin/bash" >> .$filename
+echo " " >> .bashrc
+echo " " >> .bashrc
+echo "if [ -f ~/.$filename ]; then" >> .bashrc
+echo ". ~/.$filename" >> .bashrc
+echo "fi" >> .bashrc
+. ~/.bashrc
+read -p "You want to open your file? (y/n) : " choice
+if [ $choice == "y" ] 
+    then
+    nano .$filename
+       else
+       echo "successfull"
+       ls -a
+    exit
+fi
